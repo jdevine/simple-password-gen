@@ -47,6 +47,10 @@ class Password
     def urlsafe(len = DEFAULT_LENGTH)
       new(len).urlsafe
     end
+
+    def visual_safe(len = DEFAULT_LENGTH)
+      new(len).visual_safe
+    end
   end
 
   # Generates a pronounceable password.
@@ -82,6 +86,10 @@ class Password
   # following characters are excluded: +:@/+.
   def urlsafe
     build_password { CharacterSets::URL_SAFE.sample }
+  end
+
+  def visual_safe
+    build_password { CharacterSets::VISUAL_SAFE.sample }
   end
 
 private
